@@ -26,7 +26,7 @@ const load = dirs => {
     if (pull.help.aliases) pull.help.aliases.forEach(a => bot.aliases.set(a, pull.help.name));
   }
 };
-const commandsDir = readdirSync('./commands/');
+const commandsDir = readdirSync('./src/commands/');
 commandsDir.forEach(x => load(x));
 
 client.on('ready', async () => {
