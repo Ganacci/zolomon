@@ -53,6 +53,9 @@ client.on('message', async message => {
     if(fetched == null) prefix = "z?"
     else prefix == fetched;
 
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const cmd = args.shift().toLowerCase();
+
     if(!message.content.startsWith(prefix)) return;
     const file = client.commands.get(cmd) || client.aliases.get(client.commands.get(cmd));
     if(file) file.run(client, message, args);
