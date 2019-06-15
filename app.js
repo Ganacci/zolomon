@@ -22,8 +22,8 @@ const load = dirs => {
   const commands = readdirSync(`./src/commands/${dirs}/`).filter(d => d.endsWith('.js'));
   for (const file of commands) {
     const pull = require(`./src/commands/${dirs}/${file}`);
-    bot.commands.set(pull.help.name, pull);
-    if (pull.help.aliases) pull.help.aliases.forEach(a => bot.aliases.set(a, pull.help.name));
+    client.commands.set(pull.help.name, pull);
+    if (pull.help.aliases) pull.help.aliases.forEach(a => client.aliases.set(a, pull.help.name));
   }
 };
 const commandsDir = readdirSync('./src/commands/');
