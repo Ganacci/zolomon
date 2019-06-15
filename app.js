@@ -32,7 +32,16 @@ dir.forEach(x => init(x));
 client.on('ready', async () => {
 
     console.log('I am readyyy');
+    client.user.setActivity('the prefix z? (${client.guilds.size.toLocaleString()})', { type: 'WATCHING' });
 
+});
+
+client.on('guildCreate', () => {
+    client.user.setActivity('the prefix z? (${client.guilds.size.toLocaleString()})', { type: 'WATCHING' });
+});
+
+client.on('guildDelete', () => {
+    client.user.setActivity('the prefix z? (${client.guilds.size.toLocaleString()})', { type: 'WATCHING' });
 });
 
 client.on('message', async message => {
