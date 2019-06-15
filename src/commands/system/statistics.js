@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
 
   let instanceofbot = client.guilds.size;
   let size = client.users.size - instanceofbot;
-  let duration = moment.duration(this.client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
+  let duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
 
   message.delete();
   let embed = new Discord.RichEmbed().setColor('BLACK').setFooter('Shard #1', client.user.displayAvatarURL).setAuthor(message.author.username, message.author.displayAvatarURL)
