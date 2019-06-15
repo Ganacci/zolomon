@@ -30,14 +30,12 @@ const commandsDir = readdirSync('./src/commands/');
 commandsDir.forEach(x => load(x));
 
 client.on('ready', async () => {
-
     console.log('I am readyyy');
-    client.user.setActivity('the prefix z? (${client.guilds.size.toLocaleString()})', { type: 'WATCHING' });
-
+    client.user.setActivity(`the prefix z? (${client.guilds.size})`, { type: 'WATCHING' });
 });
 
 client.on('guildCreate', () => {
-    client.user.setActivity('the prefix z? (${client.guilds.size.toLocaleString()})', { type: 'WATCHING' });
+    client.user.setActivity(`the prefix z? (${client.guilds.size})`, { type: 'WATCHING' });
 });
 
 client.on('guildDelete', () => {
