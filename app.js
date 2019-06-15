@@ -14,6 +14,31 @@ const { owners } = require('./settings.json');
 const { fetch } = require('quick.db');
 
 const client = new Client();
+client.getImage = async (message) => {
+  const messageList = message.channel.messages.sort(function(a, b) {
+    return b.createdTimestamp - a.createdTimestamp;
+  }).array();
+  for (const messageCheck of messageList) {
+    if (messageCheck.attachments.array().length !== 0) {
+      const result = await client.fileCheck(messageCheck.attachments.array()[0].url);
+      if (result !== "Attachment not found") {
+        return result;
+      }
+    } else if (messageCheck.embeds.length !== 0) {
+      if (messageCheck.embeds[0].thumbnail) {
+        const result = await client.fileCheck(messageCheck.embeds[0].thumbnail.url);
+        if (result !== "Attachment not found") {
+          return result;
+        }
+      } else if (messageCheck.embeds[0].image) {
+        const result = await client.fileCheck(messageCheck.embeds[0].image.url);
+        if (result !== "Attachment not found") {
+          return result;
+        }
+      }
+    }
+  }
+};
 client.commands = new Collection();
 client.aliases = new Collection();
 client.owners = owners;
@@ -44,7 +69,7 @@ client.on('guildCreate', (guild) => {
 
 client.on('guildDelete', (guild) => {
     client.user.setActivity(`the prefix z? (${client.guilds.size})`, { type: 'WATCHING' });
-    
+
     let channel = client.channels.get("589489597117890583");
     let embed = new RichEmbed().setColor('BLACK').setFooter(`${guild.owner.user.tag} (${guild.owner.user.id})`, guild.owner.user.displayAvatarURL).setAuthor(client.user.username, client.user.displayAvatarURL).setDescription(':wave:, left a discord server now in '+client.guilds.size+' servers, with '+client.users.size+' users and '+client.channels.size+' channels').setThumbnail(guild.iconURL);
     channel.send(embed);
