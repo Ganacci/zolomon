@@ -13,7 +13,23 @@ const { owners } = require('./settings.json');
 
 const { fetch } = require('quick.db');
 
+const imageCheck = require("file-type");
 const client = new Client();
+
+client.fileCheck = (image) => {
+  return new Promise((resolve, reject) => {
+    request.get(image, (error, response, body) => {
+      if (error) throw new Error(error);
+      const imageType = imageCheck(body);
+      if (imageType && ["image/jpeg", "image/png", "image/webp"].includes(imageType.mime)) {
+        resolve(image);
+      } else {
+        reject("Attachment not found");
+      }
+    });
+  });
+};
+
 client.getImage = async (message) => {
   const messageList = message.channel.messages.sort(function(a, b) {
     return b.createdTimestamp - a.createdTimestamp;
@@ -39,6 +55,8 @@ client.getImage = async (message) => {
     }
   }
 };
+
+
 client.commands = new Collection();
 client.aliases = new Collection();
 client.owners = owners;

@@ -16,8 +16,10 @@ const gm = require("@tohru/gm").subClass({
 
 module.exports.run = async (client, message, args) => {
 
-    const image = await client.getImage(message)
-    if(!image) image = client.user.avatarURL;
+    const image = await client.getImage(message).catch(error => {
+        message.reply("you need to provide an image to add a Brazzers watermark!");
+        console.log(error);
+      });
       if (image !== undefined) {
         message.channel.startTyping();
         const brazzersWatermark = ".../image/brazzers.png";
