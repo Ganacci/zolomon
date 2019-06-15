@@ -25,7 +25,7 @@ module.exports.run = async (client, message, args) => {
   .addField('Memory', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} megabytes`, true)
   .addField('Discord.js', "" + Discord.version, true)
   .addField('Node', "" + process.version, true)
-  message.channel.send(embed);
+  message.channel.send(embed).then(msg1 => msg1.delete(15000));
   
 
 };
