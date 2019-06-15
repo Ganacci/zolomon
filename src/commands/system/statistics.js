@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
   .addField('Guilds', "" + client.guilds.size, true)
   .addField('Users', "" + size, true)
   .addField('Uptime', duration, true)
-  .addField('Memory', "memory", true)
+  .addField('Memory', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} megabytes`, true)
   .addField('Discord.js', "" + Discord.version, true)
   .addField('Node', "" + process.version, true)
   message.channel.send(embed);
