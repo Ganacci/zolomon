@@ -21,7 +21,7 @@ client.owners = owners;
 const load = dirs => {
   const commands = readdirSync(`./src/commands/${dirs}/`).filter(d => d.endsWith('.js'));
   for (const file of commands) {
-    const pull = require(`../src/commands/${dirs}/${file}`);
+    const pull = require(`./src/commands/${dirs}/${file}`);
     bot.commands.set(pull.help.name, pull);
     if (pull.help.aliases) pull.help.aliases.forEach(a => bot.aliases.set(a, pull.help.name));
   }
