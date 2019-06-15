@@ -33,9 +33,9 @@ module.exports.run = async (client, message, args) => {
 };
 
 module.exports.help = {
-  name: 'invite',
-  description: 'Invite zolomon',
-  usage: 'invite',
+  name: 'eval',
+  description: 'Run javascript code in zolomon',
+  usage: 'eval [code]',
   category: 'system',
-  accessableby: 'members'
+  accessableby: 'owners'
 };
