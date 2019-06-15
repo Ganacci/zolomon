@@ -41,7 +41,7 @@ client.on('guildCreate', () => {
 });
 
 client.on('guildDelete', () => {
-    client.user.setActivity('the prefix z? (${client.guilds.size.toLocaleString()})', { type: 'WATCHING' });
+    client.user.setActivity(`the prefix z? (${client.guilds.size.toLocaleString()})`, { type: 'WATCHING' });
 });
 
 client.on('message', async message => {
