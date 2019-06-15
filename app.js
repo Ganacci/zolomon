@@ -15,6 +15,7 @@ const { fetch } = require('quick.db');
 
 const imageCheck = require("file-type");
 const client = new Client();
+const request = require('request');
 
 client.fileCheck = (image) => {
   return new Promise((resolve, reject) => {
