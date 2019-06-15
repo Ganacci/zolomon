@@ -7,7 +7,7 @@
  * 
  */
 
-const { Client, Collection } = require('discord.js');
+const { Client, Collection, RichEmbed } = require('discord.js');
 const { readdirSync } = require('fs');
 const { owners } = require('./settings.json');
 
@@ -34,12 +34,20 @@ client.on('ready', async () => {
     client.user.setActivity(`the prefix z? (${client.guilds.size})`, { type: 'WATCHING' });
 });
 
-client.on('guildCreate', () => {
+client.on('guildCreate', (guild) => {
     client.user.setActivity(`the prefix z? (${client.guilds.size})`, { type: 'WATCHING' });
+
+    let channel = client.channels.get("589489597117890583");
+    let embed = new RichEmbed().setColor('BLACK').setFooter(`${guild.owner.user.tag} (${guild.owner.user.id})`, guild.owner.user.displayAvatarURL).setAuthor(client.user.username, client.user.displayAvatarURL).setDescription(':wave:, joined a new discord server now in '+client.guilds.size+' servers, with '+client.users.size+' users and '+client.channels.size+' channels').setThumbnail(guild.iconURL);
+    channel.send(embed);
 });
 
-client.on('guildDelete', () => {
+client.on('guildDelete', (guild) => {
     client.user.setActivity(`the prefix z? (${client.guilds.size})`, { type: 'WATCHING' });
+    
+    let channel = client.channels.get("589489597117890583");
+    let embed = new RichEmbed().setColor('BLACK').setFooter(`${guild.owner.user.tag} (${guild.owner.user.id})`, guild.owner.user.displayAvatarURL).setAuthor(client.user.username, client.user.displayAvatarURL).setDescription(':wave:, left a discord server now in '+client.guilds.size+' servers, with '+client.users.size+' users and '+client.channels.size+' channels').setThumbnail(guild.iconURL);
+    channel.send(embed);
 });
 
 client.on('message', async message => {
