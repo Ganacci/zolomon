@@ -9,6 +9,8 @@ let random = Math.floor(Math.random()*101);
  * 
  */
 
+ const Discord = require('discord.js');
+
 
 module.exports.run = async (client, message, args) => {
 
@@ -22,9 +24,9 @@ module.exports.run = async (client, message, args) => {
 };
 
 module.exports.help = {
-  name: 'encode',
-  description: 'Encode text to base64 via zolomon',
-  usage: 'encode [text]',
+  name: 'gay',
+  description: 'Gay rate users via zolomon',
+  usage: 'gay [user]',
   category: 'other',
   accessableby: 'members'
 };
