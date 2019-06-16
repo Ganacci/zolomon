@@ -18,8 +18,8 @@ module.exports.run = async (client, message, args) => {
   message.delete();
   let embed = new Discord.RichEmbed().setColor('BLACK').setFooter('Shard #1', client.user.displayAvatarURL).setAuthor(message.author.username, message.author.displayAvatarURL)
   .addField('Guilds', "" + client.guilds.size, true)
-  .addField('Users', client.users.size, true)
-  .addField('Uptime', duration, true)
+  .addField('Users', "" + client.users.size, true)
+  .addField('Uptime', "" + duration, true)
   .addField('Memory', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} megabytes`, true)
   .addField('Discord.js', "" + Discord.version, true)
   .addField('Node', "" + process.version, true)
