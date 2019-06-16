@@ -108,7 +108,7 @@ client.on('message', async message => {
 
     if(!message.content.startsWith(prefix)) return;
     const file = client.commands.get(cmd) || client.aliases.get(client.commands.get(cmd));
-    if(file) file.run(client, message, args);
+    if(file) file.run(client, message, args, prefix);
 });
 
 client.login(process.env.TOKEN).catch(err => console.log(err));

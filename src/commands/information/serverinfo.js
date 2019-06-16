@@ -12,12 +12,11 @@ const moment = require("moment");
 require("moment-duration-format");
 const db = require('quick.db');
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, prefix) => {
 
   let instanceofbot = client.guilds.size;
   let size = client.users.size - instanceofbot;
   let duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
-  let prefix = db.fetch(`prefix_${message.guild.id}`);
 
   message.delete();
   let embed = new Discord.RichEmbed().setColor('BLACK').setFooter('Zolomon', client.user.displayAvatarURL).setAuthor(message.guild.name, message.guild.iconURL)
