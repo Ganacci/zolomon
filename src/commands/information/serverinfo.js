@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args, prefix) => {
   let embed = new Discord.RichEmbed().setColor('BLACK').setFooter('Zolomon', client.user.displayAvatarURL).setAuthor(message.guild.name, message.guild.iconURL)
   .addField('Owner', `<@${message.guild.owner.id}> (${message.guild.owner.id})`, true)
   .addField('Guild Created', message.guild.createdAt)
-  .addField('Zolomon joined', message.guild.fetchMember(client.user).joinedAt)
+  .addField('Zolomon joined', message.guild.fetchMember(client.user.id).joinedAt)
   .addField('Amount of commands executed today', '0 (WiP)')
   .addField('Server Prefix', prefix)
   message.channel.send(embed).then(msg1 => msg1.delete(15000));
