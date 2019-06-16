@@ -3,7 +3,7 @@
  * @project Zolomon
  * @author Ganacci
  * @license None
- * @class command (encode.js)
+ * @class command (decode.js)
  * 
  */
 
@@ -15,18 +15,18 @@ module.exports.run = async (client, message, args) => {
     if(!client.owners.includes(message.author.id)) return;
 
     const input = args.join(" ");
-    const encoded = base64.encode(input);    
+    const decoded = base64.deencode(input);    
 
-    let embed = new Discord.RichEmbed().setColor('BLACK').setFooter(message.author.username, message.author.displayAvatarURL).setThumbnail(client.user.displayAvatarURL).addField('Input', input).addField('Output', encoded);
+    let embed = new Discord.RichEmbed().setColor('BLACK').setFooter(message.author.username, message.author.displayAvatarURL).setThumbnail(client.user.displayAvatarURL).addField('Input', input).addField('Output', decoded);
   
     message.channel.send(embed);
 
 };
 
 module.exports.help = {
-  name: 'encode',
-  description: 'Encode text to base64 via zolomon',
-  usage: 'encode [text]',
+  name: 'decode',
+  description: 'Decode base64 to text via zolomon',
+  usage: 'decode [text]',
   category: 'other',
   accessableby: 'members'
 };
