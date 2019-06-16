@@ -12,8 +12,6 @@ const base64 = require("js-base64").Base64;
 
 module.exports.run = async (client, message, args) => {
 
-    if(!client.owners.includes(message.author.id)) return;
-
     const input = args.join(" ");
     const encoded = base64.encode(input);    
 
