@@ -10,6 +10,7 @@
 const Discord = require('discord.js');
 const moment = require("moment");
 require("moment-duration-format");
+const db = require('quick.db');
 
 module.exports.run = async (client, message, args) => {
 
