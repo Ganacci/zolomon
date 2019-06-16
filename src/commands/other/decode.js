@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
     if(!client.owners.includes(message.author.id)) return;
 
     const input = args.join(" ");
-    const decoded = base64.deencode(input);    
+    const decoded = base64.decode(input);    
 
     let embed = new Discord.RichEmbed().setColor('BLACK').setFooter(message.author.username, message.author.displayAvatarURL).setThumbnail(client.user.displayAvatarURL).addField('Input', input).addField('Output', decoded);
   
