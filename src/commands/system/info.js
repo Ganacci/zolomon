@@ -11,6 +11,7 @@ const Discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
 
+    let version = "1.0.0";
     let embed = new Discord.RichEmbed()
         .setColor('BLACK')
         .setAuthor(message.author.username, message.author.displayAvatarURL)
