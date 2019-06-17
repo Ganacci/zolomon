@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args) => {
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setTimestamp()
         .setFooter(client.user.username, client.user.displayAvatarURL)
-        .setDescription('A discord bot created in discord.js based off of a television and comic book series character [Hunter Zolomon]() or also know as Zoom, '+Client.user.username+' has a lot to offer, as in custom image commands, base64 commands, system commands and much more')
+        .setDescription('A discord bot created in discord.js based off of a television and comic book series character [Hunter Zolomon]() or also know as Zoom, '+client.user.username+' has a lot to offer, as in custom image commands, base64 commands, system commands and much more')
         .addField('Developer', 'Ganacci <@566692683838521364>')
         .addField('Discord', 'You must verify yourself, go inside of the roles channel and type `zolomon` in the channel to receive access to the Zolomon support centre\nhttps://discord.gg/JEYTmEt')
         .addField('Version', version)
