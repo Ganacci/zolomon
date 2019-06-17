@@ -27,9 +27,9 @@ module.exports.run = async (client, message, args) => {
 };
 
 module.exports.help = {
-  name: 'eval',
-  description: 'Run javascript code in zolomon',
-  usage: 'eval [code]',
+  name: 'info',
+  description: 'Get information about zolomon',
+  usage: 'info',
   category: 'system',
-  accessableby: 'owners'
+  accessableby: 'members'
 };
