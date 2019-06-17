@@ -58,6 +58,8 @@ client.on('message', async message => {
 
     let prefix = "z?";
     
+    // Prefix Things, they are cool tho correct?
+  
     let fetched = fetch(`prefix_${message.guild.id}`);
     if(fetched == null) prefix = "z?"
     else prefix == fetched;
