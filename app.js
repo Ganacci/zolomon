@@ -17,47 +17,6 @@ const imageCheck = require("file-type");
 const client = new Client();
 const request = require('request');
 
-client.fileCheck = (image) => {
-  return new Promise((resolve, reject) => {
-    request.get(image, (error, response, body) => {
-      if (error) throw new Error(error);
-      const imageType = imageCheck(body);
-      if (imageType && ["image/jpeg", "image/png", "image/webp"].includes(imageType.mime)) {
-        resolve(image);
-      } else {
-        reject("Attachment not found");
-      }
-    });
-  });
-};
-
-client.getImage = async (message) => {
-  const messageList = message.channel.messages.sort(function(a, b) {
-    return b.createdTimestamp - a.createdTimestamp;
-  }).array();
-  for (const messageCheck of messageList) {
-    if (messageCheck.attachments.array().length !== 0) {
-      const result = await client.fileCheck(messageCheck.attachments.array()[0].url);
-      if (result !== "Attachment not found") {
-        return result;
-      }
-    } else if (messageCheck.embeds.length !== 0) {
-      if (messageCheck.embeds[0].thumbnail) {
-        const result = await client.fileCheck(messageCheck.embeds[0].thumbnail.url);
-        if (result !== "Attachment not found") {
-          return result;
-        }
-      } else if (messageCheck.embeds[0].image) {
-        const result = await client.fileCheck(messageCheck.embeds[0].image.url);
-        if (result !== "Attachment not found") {
-          return result;
-        }
-      }
-    }
-  }
-};
-
-
 client.commands = new Collection();
 client.aliases = new Collection();
 client.owners = owners;
