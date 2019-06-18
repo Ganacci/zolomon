@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
         .addField('Code Name', 'The Chemist (henchman)')
         .addField('Family', `Henry Allen as a father (deceased)\nNora Allen as a mother (deceased)\nIris West-Allen (wife)\nNora West-Allen (future daugher)`)
         .addField('Affiliation', 'Central Ciry Police Department\nTeam Flash (secret)\nS.T.A.R Labs\nCult (time remnant; formerly)\nTeam Arrow (altered reality; formerly)\nTrigger Twins (altered reality; formerly)')
-        .addFIeld('Grant Gustin\nScott Whyte\nAndre Tricoteux\nTobin Bell\nTom Felton\nNicolas Gonzalez\nVanessa Williams\nAudrey Marie Anderson\nAdam Bergquist\nLogan Williams (young seas 1-2)\nLiam Hughes (young seas 3-pres)')
+        .addField('Grant Gustin\nScott Whyte\nAndre Tricoteux\nTobin Bell\nTom Felton\nNicolas Gonzalez\nVanessa Williams\nAudrey Marie Anderson\nAdam Bergquist\nLogan Williams (young seas 1-2)\nLiam Hughes (young seas 3-pres)')
         .setThumbnail('https://heroichollywood.com/wp-content/uploads/2018/10/Flash_DC_Comics_CW.jpg')
     message.channel.send(embed);
 
